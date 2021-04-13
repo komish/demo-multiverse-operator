@@ -1,0 +1,7 @@
+apiVersion: demo.example.com/v1beta1
+kind: MyCustomKind
+metadata:
+  name: mycustomkind-sample
+spec:
+  # Add fields here
+  foo: bar
