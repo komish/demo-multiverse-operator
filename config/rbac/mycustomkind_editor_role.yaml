@@ -1,0 +1,24 @@
+# permissions for end users to edit mycustomkinds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mycustomkind-editor-role
+rules:
+- apiGroups:
+  - demo.example.com
+  resources:
+  - mycustomkinds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - demo.example.com
+  resources:
+  - mycustomkinds/status
+  verbs:
+  - get
