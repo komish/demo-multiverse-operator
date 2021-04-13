@@ -20,16 +20,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
-// NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
 // MyCustomKindSpec defines the desired state of MyCustomKind
 type MyCustomKindSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of MyCustomKind. Edit mycustomkind_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// NewFoo represents the new representation of Foo in v1beta1.
+	NewFoo string `json:"newFoo,omitempty"`
+	// Bar represents a net-new key defined in v1beta1.
+	Bar string `json:"bar,omitempty"`
 }
 
 // MyCustomKindStatus defines the observed state of MyCustomKind

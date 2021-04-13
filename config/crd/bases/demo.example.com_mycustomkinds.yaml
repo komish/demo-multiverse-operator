@@ -1,0 +1,96 @@
+
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.4.1
+  creationTimestamp: null
+  name: mycustomkinds.demo.example.com
+spec:
+  group: demo.example.com
+  names:
+    kind: MyCustomKind
+    listKind: MyCustomKindList
+    plural: mycustomkinds
+    singular: mycustomkind
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: MyCustomKind is the Schema for the mycustomkinds API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: MyCustomKindSpec defines the desired state of MyCustomKind
+            properties:
+              foo:
+                description: Foo represents the original key in v1alpha1.
+                type: string
+              zap:
+                description: Zap represents a deprecated key of a non-string type
+                  in v1alpha1.
+                format: int32
+                type: integer
+            type: object
+          status:
+            description: MyCustomKindStatus defines the observed state of MyCustomKind
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
+  - name: v1beta1
+    schema:
+      openAPIV3Schema:
+        description: MyCustomKind is the Schema for the mycustomkinds API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: MyCustomKindSpec defines the desired state of MyCustomKind
+            properties:
+              bar:
+                description: Bar represents a net-new key defined in v1beta1.
+                type: string
+              newFoo:
+                description: NewFoo represents the new representation of Foo in v1beta1.
+                type: string
+            type: object
+          status:
+            description: MyCustomKindStatus defines the observed state of MyCustomKind
+            type: object
+        type: object
+    served: true
+    storage: false
+    subresources:
+      status: {}
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []
