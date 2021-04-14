@@ -84,7 +84,7 @@ build: generate fmt vet ## Build manager binary.
 	go build -o bin/manager main.go
 
 run: manifests generate fmt vet ## Run a controller from your host.
-	go run ./main.go
+	go run ./main.go --metrics-bind-address=:21543 --health-probe-bind-address=:32154
 
 docker-build: test ## Build docker image with the manager.
 	docker build -t ${IMG} .
