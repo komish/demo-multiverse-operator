@@ -14,23 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package v1beta1
+package conversionutil
 
-import (
-	ctrl "sigs.k8s.io/controller-runtime"
-	logf "sigs.k8s.io/controller-runtime/pkg/log"
+const (
+	// ZapAnnotation is the annotation representation of Zap for specs that don't
+	// contain this value.
+	ZapAnnotation = "conversion.mycustomkind.demo.example.com/zap"
+	// ZapAnnotation is the annotation representation of Zap for specs that don't
+	// contain this value.
+	BarAnnotation = "conversion.mycustomkind.demo.example.com/bar"
 )
-
-// log is for logging in this package.
-var mycustomkindlog = logf.Log.WithName("mycustomkind-resource")
-
-func (r *MyCustomKind) SetupWebhookWithManager(mgr ctrl.Manager) error {
-	return ctrl.NewWebhookManagedBy(mgr).
-		For(r).
-		Complete()
-}
-
-// indicates that this version is the hub
-func (r *MyCustomKind) Hub() {}
-
-// EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
