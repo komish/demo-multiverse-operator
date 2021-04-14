@@ -23,4 +23,7 @@ resources:
   kind: MyCustomKind
   path: github.com/komish/demo-multiverse-operator/api/v1beta1
   version: v1beta1
+  webhooks:
+    conversion: true
+    webhookVersion: v1
 version: "3"
