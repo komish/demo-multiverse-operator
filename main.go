@@ -88,7 +88,7 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "MyCustomKind")
 		os.Exit(1)
 	}
-	if err = (&demov1beta1.MyCustomKind{}).SetupWebhookWithManager(mgr); err != nil {
+	if err = (&demov1alpha1.MyCustomKind{}).SetupWebhookWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create webhook", "webhook", "MyCustomKind")
 		os.Exit(1)
 	}
