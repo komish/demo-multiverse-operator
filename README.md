@@ -8,7 +8,7 @@ scope.
 
 ## Walkthrough
 
-At the time of publication, the controller-manager container exists on
+At the time of publication, the controller-manager image exists on
 [Quay.io](https://quay.io). This means that you can just run the following
 command from the repo root to install the controller-manager in your cluster.
 This does require [Cert-Manager](https://cert-manager.io/docs/) be installed
@@ -16,6 +16,7 @@ already to automatically manager certificates needed by your webhook.
 
 ```shell
 make deploy
+oc project multiverse-operator-system
 ```
 
 From there, you can install either sample in the `config/samples/` directory.
@@ -61,3 +62,11 @@ Conversely, the `v1alpha1` representation of `MyCustomKind` accepts a key `zap`
 with an `int32` value. You can edit the existing resource and add `.spec.zap=3`,
 after which you should see the value persisted to annotations in the `v1beta1`
 representation of the instance.
+
+## Cleanup
+
+Just run:
+
+```shell
+make undeploy
+```
